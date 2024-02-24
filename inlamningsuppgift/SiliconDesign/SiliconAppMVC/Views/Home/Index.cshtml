@@ -1,8 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HomeIndexViewModel;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<partial name="~/views/shared/sections/_jumbotron.cshtml" />
+<partial name="~/views/shared/sections/_features.cshtml" model="@Model.FeaturesVM" />
+<partial name="~/views/shared/sections/_socials.cshtml" />

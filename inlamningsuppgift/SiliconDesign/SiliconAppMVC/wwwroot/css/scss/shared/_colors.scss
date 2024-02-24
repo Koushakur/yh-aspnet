@@ -1,0 +1,17 @@
+$color-black: #0b0f19;
+$color-white: #ffffff;
+$color-background-violet: #f3f6ff;
+$color-text-footer: #9397ad;
+$color-gray-300: #e2e5f1;
+$color-gray-700: #565973;
+$color-gray-800: #33354D;
+
+$color-accent: #6366f1;
+$color-button-pale: #eff2fc;
+$color-button-dark: $color-accent;
+
+// $color-button-dark: calc(#{$color-accent-main});
+
+@mixin color-svg-accent {
+   filter: brightness(0) saturate(100%) invert(45%) sepia(38%) saturate(7475%) hue-rotate(225deg) brightness(100%) contrast(90%);
+}

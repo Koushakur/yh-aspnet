@@ -1,0 +1,33 @@
+#jumbotron {
+    .container {
+        display: flex;
+        margin-bottom: 300px;
+
+        .info {
+            margin-top: 11vh;
+            width: 40%;
+
+            button {
+                margin-top: 30px;
+                margin-bottom: 100px;
+                font-weight: normal;
+                box-shadow: 0 10px 10px rgba($color-accent, 0.2);
+            }
+
+            h6 {
+                margin-bottom: 50px;
+            }
+
+            .logos {
+                display: flex;
+                gap: 15px;
+            }
+        }
+
+        .jumboImg {
+            position: absolute;
+            right: 0;
+            z-index: -1;
+        }
+    }
+}

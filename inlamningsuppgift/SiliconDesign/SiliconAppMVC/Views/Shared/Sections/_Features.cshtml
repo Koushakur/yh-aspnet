@@ -1,0 +1,21 @@
+﻿@model FeaturesViewModel;
+
+<section id="features">
+    <div class="container">
+
+        <div class="title">
+            <h2>What Do You Get With Our Tool?</h2>
+            <p>Make sure all your tasks are organized so you can set the priorities and focus on important.</p>
+        </div>
+
+        <div class="grid">
+            @foreach (var content in Model.GridContent) {
+                <div class="content">
+                    <img src="@content.Image.ImageURL" alt="@content.Image.AltText">
+                    <h5>@content.Title</h5>
+                    <p>@content.Text</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

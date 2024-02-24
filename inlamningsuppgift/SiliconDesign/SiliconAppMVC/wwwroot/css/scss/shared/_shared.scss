@@ -1,0 +1,53 @@
+$bs-s: 576px;
+$bs-m: 768px;
+$bs-l: 992px;
+$bs-xl: 1200px;
+$bs-xxl: 1400px;
+
+@mixin media-s {
+    @media(min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin media-m {
+    @media(min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-l {
+    @media(min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin media-xl {
+    @media(min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin media-xxl {
+    @media(min-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin transition {
+    transition-property: color, background-color;
+    transition-duration: 0.3s;
+}
+
+@mixin boxshadow {
+    box-shadow: 0 0 15px $color-gray-300;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}

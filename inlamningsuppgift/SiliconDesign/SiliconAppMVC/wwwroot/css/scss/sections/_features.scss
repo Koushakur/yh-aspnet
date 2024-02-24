@@ -1,0 +1,51 @@
+#features {
+    background-color: $color-background-violet;
+    padding-top: 9vh;
+    padding-bottom: 9vh;
+
+    .container {
+
+        .title {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            background-color: $color-gray-300;
+            gap: 1px;
+
+            .content {
+                padding: 30px 55px;
+                background-color: $color-background-violet;
+                text-align: center;
+
+                @include transition;
+                transition-property: background-color, border-radius, box-shadow;
+
+                &:hover {
+                    background-color: $color-white;
+                    border-radius: 8px;
+                    @include boxshadow;
+                }
+
+                img {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 6px;
+                }
+
+                h5 {
+                    margin-top: 16px;
+                    margin-bottom: 12px;
+                }
+
+                p {
+                    @include p-m;
+                }
+            }
+        }
+    }
+}

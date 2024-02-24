@@ -1,0 +1,22 @@
+#socials {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+
+      padding-top: 5vh;
+      margin-bottom: 3vh;
+
+      img {
+         background-color: $color-background-violet;
+         padding: 12px;
+         border-radius: 6px;
+
+         @include transition;
+
+         &:hover {
+            background-color: $color-accent;
+         }
+      }
+   }
+}

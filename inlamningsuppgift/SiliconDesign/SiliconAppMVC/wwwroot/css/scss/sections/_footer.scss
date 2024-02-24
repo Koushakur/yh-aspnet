@@ -1,0 +1,13 @@
+footer {
+    .container {
+        width: 50%;
+        text-align: center;
+        padding-top: 1vh;
+        padding-bottom: 4vh;
+
+        p {
+            color: $color-text-footer;
+            font-size: 14px;
+        }
+    }
+}
