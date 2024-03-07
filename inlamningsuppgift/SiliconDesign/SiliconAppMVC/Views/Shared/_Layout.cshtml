@@ -1,8 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string pageTitle;
+    if (!string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()))
+        pageTitle = ViewData["Title"] + " | Silicon Design";
+    else
+        pageTitle = "Silicon Design";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>@ViewData["Title"] | Silicon Design</title>
+    <title>@pageTitle</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

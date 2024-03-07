@@ -1,6 +1,8 @@
 ﻿<div class="container">
     <div class="logo-nav">
-        <img src="images/logos/Silicon-LightMode.svg" alt="Silicon logotype">
+        <a asp-controller="home" asp-action="index">
+            <img src=~/images/logos/Silicon-LightMode.svg alt="Silicon logotype">
+        </a>
         <nav>
             <a href="">Overview</a>
             <a href="">Features</a>
@@ -17,11 +19,15 @@
             </label>
             <label>Dark</label>
         </div>
-        <button class="btn-header btn-pale">
-            <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
-        </button>
-        <button class="btn-header btn-dark">
-            <span class="fa-regular fa-user me-2"></span>Sign up
-        </button>
+        <a asp-controller="account" asp-action="signin">
+            <button class="btn-header btn-pale">
+                <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
+            </button>
+        </a>
+        <a asp-controller="account" asp-action="signup">
+            <button class="btn-header btn-dark">
+                <span class="fa-regular fa-user me-2"></span>Sign up
+            </button>
+        </a>
     </div>
 </div>

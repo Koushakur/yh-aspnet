@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SiliconAppMVC.Models.Views;
 
-namespace SiliconAppMVC.Controllers {
-    public class HomeController : Controller {
-        public IActionResult Index() {
+namespace SiliconAppMVC.Controllers;
 
-            ViewData["Title"] = "Home";
+public class HomeController : Controller {
+    public IActionResult Index() {
 
-            return View(new HomeIndexViewModel());
-        }
+        ViewData["Title"] = "Home";
+
+        return View(new HomeIndexViewModel());
     }
 }

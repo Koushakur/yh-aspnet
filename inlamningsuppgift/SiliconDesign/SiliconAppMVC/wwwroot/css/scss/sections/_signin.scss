@@ -1,0 +1,46 @@
+#signin {
+   margin-top: 11vh;
+   margin-bottom: 11vh;
+
+   .container {
+      width: 550px;
+
+      p {
+         @include p-m;
+      }
+
+      form {
+         display: flex;
+         flex-direction: column;
+
+         label {
+            margin-top: 20px;
+            margin-bottom: 5px;
+         }
+
+         button {
+            @include boxshadow;
+         }
+
+         .rememberMe {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+
+            label {
+               margin: 0;
+               font-weight: normal;
+               margin-left: 10px;
+            }
+         }
+
+         .forgotPassword {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+         }
+
+      }
+   }
+}

@@ -1,0 +1,58 @@
+﻿@model SignUpViewModel;
+
+<section id="signup">
+    <div class="container">
+        <h2>Create Account</h2>
+
+        <div class="d-flex">
+            <p>Already have an account? <a asp-controller="account" asp-action="signin">Sign in here.</a></p>
+        </div>
+
+        <form method="post" asp-controller="account" asp-action="signup" novalidate>
+            <div class="nameEntry">
+                <div class="nameBox">
+                    <div class="labelAndError">
+                        <label asp-for="FormSignUp.FirstName"></label>
+                        <span asp-validation-for="FormSignUp.FirstName" class="error-text"></span>
+                    </div>
+                    <input asp-for="FormSignUp.FirstName" autocomplete="given-name">
+                </div>
+                <div class="nameBox">
+                    <div class="labelAndError">
+                        <label asp-for="FormSignUp.LastName"></label>
+                        <span asp-validation-for="FormSignUp.LastName" class="error-text"></span>
+                    </div>
+                    <input asp-for="FormSignUp.LastName" autocomplete="family-name">
+                </div>
+            </div>
+
+            <div class="labelAndError">
+                <label asp-for="FormSignUp.Email"></label>
+                <span asp-validation-for="FormSignUp.Email" class="error-text"></span>
+            </div>
+            <input asp-for="FormSignUp.Email" autocomplete="email">
+
+            <div class="labelAndError">
+                <label asp-for="FormSignUp.Password"></label>
+                <span asp-validation-for="FormSignUp.Password" class="error-text"></span>
+            </div>
+            <input asp-for="FormSignUp.Password" autocomplete="new-password" type="password">
+
+            <div class="labelAndError">
+                <label asp-for="FormSignUp.PasswordConfirm"></label>
+                <span asp-validation-for="FormSignUp.PasswordConfirm" class="error-text"></span>
+            </div>
+            <input asp-for="FormSignUp.PasswordConfirm" autocomplete="new-password" type="password">
+
+            <div class="terms">
+                <input type="checkbox" asp-for="FormSignUp.AcceptTerms">
+                <div class="labelAndError">
+                    <label asp-for="FormSignUp.AcceptTerms">I agree to the <a asp-controller="business" asp-action="terms">Terms & Conditions</a></label>
+                    <span asp-validation-for="FormSignUp.AcceptTerms" class="error-text"></span>
+                </div>
+            </div>
+
+            <button class="btn-dark" type="submit">Sign up</button>
+        </form>
+    </div>
+</section>

@@ -1,3 +1,13 @@
+input,
+button,
+a {
+
+
+   &:focus {
+      outline: solid 1px $color-accent;
+   }
+}
+
 /* Buttons */
 
 button {
@@ -35,6 +45,56 @@ button {
 
 /**/
 
+/* Form input */
+
+input {
+   border: solid 1px $color-gray-500;
+   border-radius: 10px;
+   padding: 12px 15px;
+   font-weight: normal;
+
+
+
+   &::placeholder {
+      color: $color-gray-500;
+   }
+}
+
+input[type=checkbox] {
+   position: relative;
+   appearance: none;
+
+   width: 18px;
+   height: 18px;
+   padding: 0px;
+
+   border: solid 2px $color-gray-500;
+   border-radius: 3px;
+
+   &:hover {
+      background-color: $color-gray-300;
+   }
+
+   &:checked {
+      background-color: $color-accent;
+      color: $color-white;
+
+      &:hover {
+         background-color: $color-checkbox-checked-hover;
+      }
+
+      &::after {
+         content: "\2714";
+         font-size: 12px;
+         line-height: 0;
+         position: absolute;
+         top: 7px;
+         left: 2px;
+      }
+   }
+}
+
+/**/
 
 /* Slider switch */
 

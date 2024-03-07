@@ -1,33 +1,33 @@
 #jumbotron {
-    .container {
-        display: flex;
-        margin-bottom: 300px;
+   .container {
+      display: flex;
 
-        .info {
-            margin-top: 11vh;
-            width: 40%;
+      .info {
+         margin-top: 11vh;
+         width: 40%;
 
-            button {
-                margin-top: 30px;
-                margin-bottom: 100px;
-                font-weight: normal;
-                box-shadow: 0 10px 10px rgba($color-accent, 0.2);
-            }
+         button {
+            margin-top: 30px;
+            margin-bottom: 100px;
+            font-weight: normal;
 
-            h6 {
-                margin-bottom: 50px;
-            }
+            box-shadow: 0 10px 10px rgba($color-accent, 0.2);
+         }
 
-            .logos {
-                display: flex;
-                gap: 15px;
-            }
-        }
+         h6 {
+            margin-bottom: 50px;
+         }
 
-        .jumboImg {
-            position: absolute;
-            right: 0;
-            z-index: -1;
-        }
-    }
+         .logos {
+            display: flex;
+            gap: 15px;
+         }
+      }
+
+      .jumboImg {
+         position: absolute;
+         right: 0;
+         z-index: -1;
+      }
+   }
 }

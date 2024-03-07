@@ -3,6 +3,7 @@ $color-white: #ffffff;
 $color-background-violet: #f3f6ff;
 $color-text-footer: #9397ad;
 $color-gray-300: #e2e5f1;
+$color-gray-500: #B4B7C9;
 $color-gray-700: #565973;
 $color-gray-800: #33354D;
 
@@ -10,8 +11,9 @@ $color-accent: #6366f1;
 $color-button-pale: #eff2fc;
 $color-button-dark: $color-accent;
 
-// $color-button-dark: calc(#{$color-accent-main});
+$color-error: #EF4444;
+$color-successs: #22C55E;
+$color-warning: #FFBA08;
+$color-info: #4C82F7;
 
-@mixin color-svg-accent {
-   filter: brightness(0) saturate(100%) invert(45%) sepia(38%) saturate(7475%) hue-rotate(225deg) brightness(100%) contrast(90%);
-}
+$color-checkbox-checked-hover: rgba($color-accent, 0.8);

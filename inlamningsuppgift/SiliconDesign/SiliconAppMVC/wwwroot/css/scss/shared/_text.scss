@@ -18,14 +18,15 @@ p {
 
 h1 {
    font-size: 56px;
-   font-weight: 800;
+   font-weight: 900;
    line-height: 130%;
 }
 
 h2 {
    font-size: 40px;
-   font-weight: 800;
+   font-weight: 900;
    line-height: 130%;
+   margin-bottom: 15px;
 }
 
 h5 {
@@ -41,4 +42,10 @@ h6 {
 
 a {
    color: $color-accent;
+   text-decoration: none;
+   font-weight: normal;
+
+   &:hover {
+      text-decoration: underline;
+   }
 }

@@ -1,0 +1,33 @@
+﻿@model SignInViewModel;
+
+<section id="signin">
+    <div class="container">
+        <h2>Welcome back</h2>
+
+        <div class="d-flex">
+            <p>Don't have an account yet? <a asp-controller="account" asp-action="signup">Sign up here.</a></p>
+        </div>
+
+        <form method="post" asp-controller="account" asp-action="signin" novalidate>
+            <div class="labelAndError">
+                <label asp-for="FormSignIn.Email"></label>
+                <span asp-validation-for="FormSignIn.Email" class="error-text"></span>
+            </div>
+            <input asp-for="FormSignIn.Email" autocomplete="email" type="text">
+
+            <div class="labelAndError">
+                <label asp-for="FormSignIn.Password"></label>
+                <span asp-validation-for="FormSignIn.Password" class="error-text"></span>
+            </div>
+            <input asp-for="FormSignIn.Password" autocomplete="current-password" type="password">
+
+            <div class="rememberMe">
+                <input asp-for="FormSignIn.RememberMe" type="checkbox">
+                <label asp-for="FormSignIn.RememberMe"></label>
+            </div>
+
+            <button class="btn-dark" type="submit">Sign in</button>
+            <a asp-controller="account" asp-action="forgotPassword" class="forgotPassword">Forgot your password?</a>
+        </form>
+    </div>
+</section>
