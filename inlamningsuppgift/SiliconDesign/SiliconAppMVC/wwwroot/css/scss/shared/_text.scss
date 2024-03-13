@@ -1,51 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 * {
-   font-family: manrope, sans-serif;
-   font-weight: bold;
+    font-family: manrope, sans-serif;
+    font-weight: bold;
 }
 
 p {
-   color: $color-gray-700;
-   font-weight: normal;
-   font-size: 18px;
-   line-height: 160%;
+    color: $color-gray-700;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 160%;
 }
 
 @mixin p-m {
-   font-size: 16px;
+    font-size: 16px;
 }
 
 h1 {
-   font-size: 56px;
-   font-weight: 900;
-   line-height: 130%;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 130%;
 }
 
 h2 {
-   font-size: 40px;
-   font-weight: 900;
-   line-height: 130%;
-   margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 130%;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 130%;
 }
 
 h5 {
-   font-size: 20px;
-   font-weight: 800;
-   line-height: 140%;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 140%;
 }
 
 h6 {
-   font-size: 16px;
-   font-weight: 800;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 a {
-   color: $color-accent;
-   text-decoration: none;
-   font-weight: normal;
+    color: $color-accent;
+    text-decoration: none;
+    font-weight: normal;
 
-   &:hover {
-      text-decoration: underline;
-   }
+    &.button {
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.add-optional-text:after {
+    content: " (optional)";
+    color: $color-gray-600;
+    font-weight: 600;
+}
+
+.error-text {
+    color: $color-error;
+    font-size: 13px;
 }

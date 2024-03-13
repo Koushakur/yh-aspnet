@@ -4,9 +4,9 @@
             <img src=~/images/logos/Silicon-LightMode.svg alt="Silicon logotype">
         </a>
         <nav>
-            <a href="">Overview</a>
-            <a href="">Features</a>
-            <a href="">Contact</a>
+            <a asp-controller="home" asp-action="index">Overview</a>
+            <a asp-controller="home" asp-action="index">Features</a>
+            <a asp-controller="home" asp-action="index">Contact</a>
         </nav>
     </div>
 
@@ -19,15 +19,11 @@
             </label>
             <label>Dark</label>
         </div>
-        <a asp-controller="account" asp-action="signin">
-            <button class="btn-header btn-pale">
-                <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
-            </button>
+        <a class="button btn-header btn-pale" asp-controller="account" asp-action="signin">
+            <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
         </a>
-        <a asp-controller="account" asp-action="signup">
-            <button class="btn-header btn-dark">
-                <span class="fa-regular fa-user me-2"></span>Sign up
-            </button>
+        <a class="button btn-header btn-dark" asp-controller="account" asp-action="signup">
+            <span class="fa-regular fa-user me-2"></span>Sign up
         </a>
     </div>
 </div>

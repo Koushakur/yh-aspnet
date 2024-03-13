@@ -5,7 +5,7 @@
         <h2>Create Account</h2>
 
         <div class="d-flex">
-            <p>Already have an account? <a asp-controller="account" asp-action="signin">Sign in here.</a></p>
+            <p>Already have an account?&nbsp;</p><a asp-controller="account" asp-action="signin">Sign in here.</a>
         </div>
 
         <form method="post" asp-controller="account" asp-action="signup" novalidate>
@@ -15,14 +15,14 @@
                         <label asp-for="FormSignUp.FirstName"></label>
                         <span asp-validation-for="FormSignUp.FirstName" class="error-text"></span>
                     </div>
-                    <input asp-for="FormSignUp.FirstName" autocomplete="given-name">
+                    <input asp-for="FormSignUp.FirstName">
                 </div>
                 <div class="nameBox">
                     <div class="labelAndError">
                         <label asp-for="FormSignUp.LastName"></label>
                         <span asp-validation-for="FormSignUp.LastName" class="error-text"></span>
                     </div>
-                    <input asp-for="FormSignUp.LastName" autocomplete="family-name">
+                    <input asp-for="FormSignUp.LastName">
                 </div>
             </div>
 
@@ -30,19 +30,19 @@
                 <label asp-for="FormSignUp.Email"></label>
                 <span asp-validation-for="FormSignUp.Email" class="error-text"></span>
             </div>
-            <input asp-for="FormSignUp.Email" autocomplete="email">
+            <input asp-for="FormSignUp.Email">
 
             <div class="labelAndError">
                 <label asp-for="FormSignUp.Password"></label>
                 <span asp-validation-for="FormSignUp.Password" class="error-text"></span>
             </div>
-            <input asp-for="FormSignUp.Password" autocomplete="new-password" type="password">
+            <input asp-for="FormSignUp.Password">
 
             <div class="labelAndError">
                 <label asp-for="FormSignUp.PasswordConfirm"></label>
                 <span asp-validation-for="FormSignUp.PasswordConfirm" class="error-text"></span>
             </div>
-            <input asp-for="FormSignUp.PasswordConfirm" autocomplete="new-password" type="password">
+            <input asp-for="FormSignUp.PasswordConfirm">
 
             <div class="terms">
                 <input type="checkbox" asp-for="FormSignUp.AcceptTerms">
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <button class="btn-dark" type="submit">Sign up</button>
+            <button class="btn-dark btn-shadow" type="submit">Sign up</button>
         </form>
     </div>
 </section>

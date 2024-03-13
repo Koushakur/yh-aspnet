@@ -1,0 +1,95 @@
+#accountDetails {
+
+
+   .container {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 325px auto;
+
+      form {
+         .flexBox {
+            display: flex;
+            gap: 20px;
+
+            .box {
+               width: 100%;
+            }
+         }
+
+         .button {
+            height: 40px;
+         }
+      }
+
+      .form-buttons {
+         margin-top: 30px;
+      }
+
+      // Left side
+      .profile {
+         padding: 0 12px;
+         padding-top: 3vh;
+
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+         .imageAndIcon {
+            position: relative;
+            margin-bottom: 15px;
+
+            img {
+               width: 120px;
+               border-radius: 50%;
+            }
+
+            .newProfileImage {
+               position: absolute;
+               right: 0;
+               bottom: 0;
+               padding: 10px;
+
+               background-color: $color-white;
+               border: 1px solid $color-gray-300;
+               border-radius: 50%;
+
+               box-shadow: 0 2px 15px $color-gray-300;
+            }
+         }
+      }
+
+
+      p {
+         @include p-m;
+         margin-bottom: 30px;
+      }
+
+      a {
+         width: 100%;
+         // text-align: right;
+      }
+   }
+
+   // Right side
+   .updateInfo {
+      padding-top: 4vh;
+      padding-bottom: 9vh;
+      padding-left: 12%;
+
+      border-left: 1px solid $color-gray-300;
+
+      h5 {
+         color: $color-accent;
+         margin-top: 30px;
+      }
+
+      .basicInfo {
+         padding-bottom: 3vh;
+      }
+
+      .addressInfo {
+         border-top: 1px solid $color-gray-300;
+         display: grid;
+      }
+   }
+}

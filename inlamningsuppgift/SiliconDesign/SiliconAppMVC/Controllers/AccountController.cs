@@ -5,6 +5,27 @@ namespace SiliconAppMVC.Controllers;
 
 public class AccountController : Controller {
 
+    [Route("/account")]
+    [HttpGet]
+    public IActionResult AccountDetails() {
+        ViewData["Title"] = "Account details";
+        return View(new AccountDetailsViewModel());
+    }
+
+    [Route("/account")]
+    [HttpPost]
+    public IActionResult BasicInfo(SignInViewModel model) {
+        ViewData["Title"] = "Account details";
+        return View(model);
+    }
+
+    [Route("/account")]
+    [HttpPost]
+    public IActionResult AddressInfo(SignInViewModel model) {
+        ViewData["Title"] = "Account details";
+        return View(model);
+    }
+
     [Route("/signin")]
     [HttpGet]
     public IActionResult SignIn() {

@@ -1,0 +1,13 @@
+input,
+button,
+a,
+textarea {
+
+   &:focus {
+      outline: solid 1px $color-accent;
+   }
+}
+
+@import './components/buttons';
+@import './components/forms';
+@import './components/slider';

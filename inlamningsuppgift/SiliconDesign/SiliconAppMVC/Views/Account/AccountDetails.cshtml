@@ -1,0 +1,121 @@
+﻿@model AccountDetailsViewModel;
+
+<section id="accountDetails">
+    <div class="container">
+
+        <!-- Left side -->
+        <div class="profile">
+            <!-- Profile -->
+
+            <div class="imageAndIcon">
+                <img src="~/@Model.FormBasicInfo.ProfileImageURL" alt="Your profile image">
+                <span class="fa-solid fa-rotate newProfileImage"></span>
+            </div>
+
+            <h5>@Model.FormBasicInfo.FullName</h5>
+            <p>@Model.FormBasicInfo.Email</p>
+            <a href="" class="button btn-dark btn-shadow">
+                <span class="fa-regular fa-gear me-3"></span> Account Details
+            </a>
+            <a href="" class="button btn-transparent">
+                <span class="fa-solid fa-arrow-right-from-bracket me-3"></span> Sign out
+            </a>
+        </div>
+
+        <!-- Right side -->
+        <div class="updateInfo">
+            <h3>Account Details</h3>
+            <!-- Basic info form -->
+            <div class="basicInfo">
+                <h5>Basic Info</h5>
+
+                <form method="post" asp-controller="account" asp-action="basicinfo">
+                    <div class="flexBox">
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormBasicInfo.FirstName"></label>
+                                <span asp-validation-for="FormBasicInfo.FirstName" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormBasicInfo.FirstName">
+                        </div>
+
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormBasicInfo.LastName"></label>
+                                <span asp-validation-for="FormBasicInfo.LastName" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormBasicInfo.LastName">
+                        </div>
+                    </div>
+
+                    <div class="flexBox">
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormBasicInfo.Email"></label>
+                                <span asp-validation-for="FormBasicInfo.Email" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormBasicInfo.Email">
+                        </div>
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormBasicInfo.Phone"></label>
+                                <span asp-validation-for="FormBasicInfo.Phone" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormBasicInfo.Phone">
+                        </div>
+                    </div>
+
+                    <label asp-for="FormBasicInfo.Bio" class="add-optional-text"></label>
+                    <textarea asp-for="FormBasicInfo.Bio" cols="30" rows="4"></textarea>
+
+                    <div class="flexBox form-buttons">
+                        <button class="button btn-pale" type="reset">Cancel</button>
+                        <button class="button btn-dark" type="submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Address info form -->
+            <div class="addressInfo">
+                <h5>Address</h5>
+                <form method="post" asp-controller="account" asp-action="addressinfo">
+                    <div class="labelAndError">
+                        <label asp-for="FormAddressInfo.Address1"></label>
+                        <span asp-validation-for="FormAddressInfo.Address1" class="error-text"></span>
+                    </div>
+                    <input asp-for="FormAddressInfo.Address1">
+
+                    <div class="labelAndError">
+                        <label asp-for="FormAddressInfo.Address2" class="add-optional-text"></label>
+                        <span asp-validation-for="FormAddressInfo.Address2" class="error-text"></span>
+                    </div>
+                    <input asp-for="FormAddressInfo.Address2">
+
+                    <div class="flexBox">
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormAddressInfo.PostalCode"></label>
+                                <span asp-validation-for="FormAddressInfo.PostalCode" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormAddressInfo.PostalCode">
+                        </div>
+                        <div class="box">
+                            <div class="labelAndError">
+                                <label asp-for="FormAddressInfo.City"></label>
+                                <span asp-validation-for="FormAddressInfo.City" class="error-text"></span>
+                            </div>
+                            <input asp-for="FormAddressInfo.City">
+                        </div>
+                    </div>
+                    <div class="flexBox form-buttons">
+                        <button class="button btn-pale" type="reset">Cancel</button>
+                        <button class="button btn-dark" type="submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<partial name="~/views/shared/sections/_socials.cshtml" />
