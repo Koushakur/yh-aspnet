@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SiliconAppMVC.Models;
+namespace Infrastructure.Models;
 
 public class SignInModel {
     [Display(Name = "Email address", Prompt = "Enter your email-address")]

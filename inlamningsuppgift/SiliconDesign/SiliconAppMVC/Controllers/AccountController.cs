@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.Services;
+//using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SiliconAppMVC.Models.Views;
 
 namespace SiliconAppMVC.Controllers;
 
-public class AccountController : Controller {
+public class AccountController(UserService userService) : Controller {
+    private readonly UserService _userService = userService;
 
     [Route("/account")]
     [HttpGet]
+    //[Authorize]
     public IActionResult AccountDetails() {
         ViewData["Title"] = "Account details";
+
         return View(new AccountDetailsViewModel());
     }
 
@@ -16,6 +21,7 @@ public class AccountController : Controller {
     [HttpPost]
     public IActionResult BasicInfo(SignInViewModel model) {
         ViewData["Title"] = "Account details";
+
         return View(model);
     }
 
@@ -23,8 +29,10 @@ public class AccountController : Controller {
     [HttpPost]
     public IActionResult AddressInfo(SignInViewModel model) {
         ViewData["Title"] = "Account details";
+
         return View(model);
     }
+
 
     [Route("/signin")]
     [HttpGet]
@@ -35,22 +43,42 @@ public class AccountController : Controller {
 
     [Route("/signin")]
     [HttpPost]
-    public IActionResult SignIn(SignInViewModel model) {
+    public async Task<IActionResult> SignIn(SignInViewModel model) {
         ViewData["Title"] = "Sign In";
+
+        if (ModelState.IsValid) {
+            if (await _userService.SignInAsync(model.FormSignIn))
+                return RedirectToAction("Index", "Home");
+            else
+                model.ErrorMessage = "Wrong email or password";
+        }
+
         return View(model);
     }
+
 
     [Route("/signup")]
     [HttpGet]
     public IActionResult SignUp() {
         ViewData["Title"] = "Sign Up";
+
         return View(new SignUpViewModel());
     }
 
     [Route("/signup")]
     [HttpPost]
-    public IActionResult SignUp(SignUpViewModel model) {
+    public async Task<IActionResult> SignUp(SignUpViewModel model) {
         ViewData["Title"] = "Sign Up";
+
+        if (ModelState.IsValid) {
+            var tUser = await _userService.CreateUserAsync(model.FormSignUp);
+            if (tUser != null)
+                //User was successfully created
+                return RedirectToAction("AccountDetails");
+            else
+                model.ErrorMessage = "User with that email already exists";
+        }
+
         return View(model);
     }
 }

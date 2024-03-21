@@ -1,7 +1,7 @@
-﻿using SiliconAppMVC.Helpers;
+﻿using Infrastructure.Helpers;
 using System.ComponentModel.DataAnnotations;
 
-namespace SiliconAppMVC.Models;
+namespace Infrastructure.Models;
 public class SignUpModel {
 
     [Display(Name = "First name", Prompt = "Enter your first name")]

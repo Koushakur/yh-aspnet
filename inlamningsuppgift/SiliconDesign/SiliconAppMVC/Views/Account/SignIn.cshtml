@@ -1,6 +1,11 @@
 ﻿@model SignInViewModel;
 
 <section id="signin">
+    @{
+        if (!string.IsNullOrWhiteSpace(Model.ErrorMessage)) {
+            <h5 id="error-msg">@Model.ErrorMessage</h5>
+        }
+    }
     <div class="container">
         <h2>Welcome back</h2>
 
