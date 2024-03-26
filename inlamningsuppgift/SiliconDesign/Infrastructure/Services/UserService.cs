@@ -8,7 +8,7 @@ using System.Diagnostics;
 namespace Infrastructure.Services;
 public class UserService(UserRepository userRepository, AddressService addressService) {
     private readonly UserRepository _userRepository = userRepository;
-    private readonly AddressService _addressService = addressService;
+    //private readonly AddressService _addressService = addressService;
 
     /// <summary>
     /// 
@@ -34,8 +34,7 @@ public class UserService(UserRepository userRepository, AddressService addressSe
 
             var tUser = await _userRepository.GetOne(x => x.Email == model.Email);
             if (tUser != null) {
-                if (PasswordSecurity.ValidatePassword(model.Password, tUser.Password, tUser.SecurityKey))
-                    return true;
+                return PasswordSecurity.ValidatePassword(model.Password, tUser.Password, tUser.SecurityKey);
             }
 
         } catch (Exception e) { Debug.WriteLine(e); }

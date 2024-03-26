@@ -10,6 +10,7 @@ public class PasswordSecurity {
             using var hmac = new HMACSHA512();
             var secKey = Convert.ToBase64String(hmac.Key);
             var hash = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password)));
+
             return (hash, secKey);
 
         } catch (Exception e) { Debug.WriteLine(e); }
