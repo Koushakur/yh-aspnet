@@ -1,4 +1,9 @@
-﻿<div class="container">
+﻿@using Infrastructure.Models.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<div class="container">
     <div class="logo-nav">
         <a asp-controller="home" asp-action="index">
             <img src=~/images/logos/Silicon-LightMode.svg alt="Silicon logotype">
@@ -19,11 +24,24 @@
             </label>
             <label>Dark</label>
         </div>
-        <a class="button btn-header btn-pale" asp-controller="account" asp-action="signin">
-            <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
-        </a>
-        <a class="button btn-header btn-dark" asp-controller="account" asp-action="signup">
-            <span class="fa-regular fa-user me-2"></span>Sign up
-        </a>
+        @if (SignInManager.IsSignedIn(User)) {
+            @* Signed in, show profile icon *@
+            <div class="profileButton">
+                @if (false) { }
+                <img src="~/images/profile.png" alt="User's profile image">
+                <div class="profileMenu">
+                    <a asp-action="AccountDetails" asp-controller="Account" class="button btn-dark btn-height-medium">Account Details</a>
+                    <a asp-action="SignOut" asp-controller="Account" class="button btn-dark btn-height-medium">Sign Out</a>
+                </div>
+            </div>
+        } else {
+            @* Not signed in, show sign up/sign up buttons *@
+            <a class="button btn-header btn-pale" asp-controller="account" asp-action="signin">
+                <span class="fa-solid fa-arrow-right-to-bracket me-2"></span>Sign in
+            </a>
+            <a class="button btn-header btn-dark" asp-controller="account" asp-action="signup">
+                <span class="fa-regular fa-user me-2"></span>Sign up
+            </a>
+        }
     </div>
 </div>

@@ -21,7 +21,7 @@ public class SignUpModel {
     [Display(Name = "Password", Prompt = "********")]
     [Required(ErrorMessage = "Required field")]
     [DataType(DataType.Password)]
-    [RegularExpression(pattern: @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d\W]).{6,}$", ErrorMessage = "Pasword needs upper, lower and digit or special character")]
+    //[RegularExpression(pattern: @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d\W]).{8,}$", ErrorMessage = "Pasword needs upper, lower and digit or special character")]
     public string Password { get; set; } = null!;
 
     [Display(Name = "Confirm password", Prompt = "********")]

@@ -1,9 +1,9 @@
-﻿using Infrastructure.Contexts;
-using Infrastructure.Entities;
+﻿//using Infrastructure.Contexts;
+//using Infrastructure.Entities;
 
-namespace Shared.Repositories;
+//namespace Shared.Repositories;
 
-public class UserRepository(DataContext dbContext) : AbstractRepository<UserEntity>(dbContext) {
+//public class UserRepository(DataContext dbContext) : AbstractRepository<UserEntity>(dbContext) {
 
-    private readonly DataContext _dbContext = dbContext;
-}
+//    private readonly DataContext _dbContext = dbContext;
+//}

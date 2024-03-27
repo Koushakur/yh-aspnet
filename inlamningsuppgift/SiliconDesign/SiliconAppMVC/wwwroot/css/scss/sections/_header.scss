@@ -1,46 +1,74 @@
 header {
 
-   .container {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 0;
 
-      display: flex;
-      justify-content: space-between;
-      padding: 16px 0;
-
-      .logo-nav {
-         display: flex;
-         align-items: center;
-
-         img {
-            margin-right: 50px;
-         }
-
-         nav {
+        .logo-nav {
             display: flex;
-            gap: 25px;
-
-            a {
-               color: $color-gray-800;
-               font-weight: bold;
-
-               &:hover {
-                  text-decoration: overline;
-               }
-            }
-         }
-      }
-
-      .functionality {
-         display: flex;
-         align-items: center;
-         gap: 20px;
-
-         .darkmode {
-            margin-right: 15px;
-
-            display: flex;
-            gap: 15px;
             align-items: center;
-         }
-      }
-   }
+
+            img {
+                margin-right: 50px;
+            }
+
+            nav {
+                display: flex;
+                gap: 25px;
+
+                a {
+                    color: $color-gray-800;
+                    font-weight: bold;
+
+                    &:hover {
+                        text-decoration: overline;
+                    }
+                }
+            }
+        }
+
+        .functionality {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .darkmode {
+                margin-right: 15px;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .profileButton {
+                position: relative;
+
+                img {
+                    width: 44px;
+                    border-radius: 50%;
+                }
+
+                .profileMenu {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    flex-direction: column;
+                    align-items: end;
+                    gap: 5px;
+                    border: 1px solid $color-gray-400;
+                    border-radius: 3px;
+                    padding: 5px;
+                    background-color: $color-gray-300;
+
+                    a {
+                        white-space: nowrap;
+                    }
+                }
+
+                &:hover > .profileMenu {
+                    display: flex;
+                }
+            }
+        }
+    }
 }
