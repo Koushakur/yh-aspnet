@@ -1,9 +1,9 @@
-﻿//using Infrastructure.Contexts;
-//using Infrastructure.Entities;
+﻿using Infrastructure.Contexts;
+using Infrastructure.Entities;
 
-//namespace Shared.Repositories;
+namespace Infrastructure.Repositories;
 
-//public class AddressRepository(DataContext dbContext) : AbstractRepository<AddressEntity>(dbContext) {
+public class AddressRepository(IdentityContext dbContext) : AbstractRepository<AddressEntity>(dbContext) {
 
-//    private readonly DataContext _dbContext = dbContext;
-//}
+    private readonly IdentityContext _dbContext = dbContext;
+}

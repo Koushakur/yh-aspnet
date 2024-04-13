@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SiliconAppMVC.Models;
-public class AccountDetailsBasicInfoModel {
+namespace Infrastructure.Models;
+public class AccountDetails_BasicInfo_Model {
 
     [DataType(DataType.ImageUrl)]
     public string? ProfileImageURL { get; set; }
@@ -25,9 +25,9 @@ public class AccountDetailsBasicInfoModel {
     public string Email { get; set; } = null!;
 
     [Display(Name = "Phone", Prompt = "Enter your phone number")]
-    [Required(ErrorMessage = "Required field")]
-    [DataType(DataType.PhoneNumber)]
-    public string Phone { get; set; } = null!;
+    //[Required(ErrorMessage = "Required field")]
+    //[DataType(DataType.PhoneNumber)]
+    public string? Phone { get; set; }
 
     [Display(Name = "Bio", Prompt = "Add a short bio...")]
     [DataType(DataType.MultilineText)]

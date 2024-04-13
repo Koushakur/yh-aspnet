@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Factories;
 
-public class UserFactory(SignInManager<AppUser> signInManager) {
-    private readonly SignInManager<AppUser> _signInManager = signInManager;
+public class UserFactory() {
 
     public static UserEntity CreateUserEntity(SignUpModel model) {
 

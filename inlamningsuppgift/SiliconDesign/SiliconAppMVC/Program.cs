@@ -1,8 +1,8 @@
 using Infrastructure.Contexts;
 using Infrastructure.Models.Identity;
-//using Infrastructure.Services;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
-//using Shared.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -17,8 +17,8 @@ builder.Services.AddDefaultIdentity<AppUser>(x => {
     x.Password.RequireNonAlphanumeric = false;
 }).AddEntityFrameworkStores<IdentityContext>();
 //
-//builder.Services.AddScoped<AddressRepository>();
-//builder.Services.AddScoped<AddressService>();
+builder.Services.AddScoped<AddressRepository>();
+builder.Services.AddScoped<AddressService>();
 //builder.Services.AddScoped<UserRepository>();
 //builder.Services.AddScoped<UserService>();
 
@@ -29,6 +29,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+
+app.UseStatusCodePagesWithReExecute("/error", "?statuscode={0}");
 
 app.MapControllerRoute(
     name: "default",

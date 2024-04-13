@@ -1,45 +1,99 @@
 ﻿using Infrastructure.Contexts;
 using Infrastructure.Factories;
 using Infrastructure.Models.Identity;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.Models;
 using SiliconAppMVC.Models.Views;
 using System.Diagnostics;
 
 namespace SiliconAppMVC.Controllers;
 
-public class AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IdentityContext context) : Controller {
+public class AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IdentityContext context, AddressService addressService) : Controller {
 
     private readonly UserManager<AppUser> _userManager = userManager;
     private readonly SignInManager<AppUser> _signInManager = signInManager;
     private readonly IdentityContext _idContext = context;
+    private readonly AddressService _addressService = addressService;
 
     [Authorize]
     [Route("/account")]
-    public IActionResult AccountDetails() {
+    public async Task<IActionResult> AccountDetails() {
         ViewData["Title"] = "Account details";
 
-        return View(new AccountDetailsViewModel());
+        var vm = new AccountDetailsViewModel();
+
+        AppUser? tUser = await _userManager.GetUserAsync(User);
+
+        if (tUser != null) {
+
+            vm.FormBasicInfo = new() {
+                FirstName = tUser.FirstName,
+                LastName = tUser.LastName,
+                Email = tUser.Email!,
+                Phone = tUser.PhoneNumber!,
+                Bio = tUser.Biography,
+                ProfileImageURL = "images/profile.png"
+            };
+
+            var tAddress = await _addressService.GetAddressAsync(tUser.Id);
+
+            if (tAddress != null) {
+                vm.FormAddressInfo = new() {
+                    Address1 = tUser.Address.StreetName,
+                    Address2 = tUser.Address.StreetName2,
+                    PostalCode = tUser.Address.PostalCode,
+                    City = tUser.Address.City,
+                };
+            }
+        }
+
+
+        return View(vm);
     }
 
     [HttpPost]
-    [Route("/account")]
-    public IActionResult BasicInfo(SignInViewModel model) {
-        ViewData["Title"] = "Account details";
+    public async Task<IActionResult> BasicInfo(AccountDetails_BasicInfo_Model model) {
 
-        return View(model);
+        try {
+            if (ModelState.IsValid) {
+                AppUser? tUser = await _userManager.GetUserAsync(User);
+
+                if (tUser != null) {
+                    tUser.FirstName = model.FirstName;
+                    tUser.LastName = model.LastName;
+                    tUser.Email = model.Email;
+                    tUser.PhoneNumber = model.Phone;
+                    tUser.Biography = model.Bio;
+
+                    await _userManager.UpdateAsync(tUser);
+                }
+            }
+
+        } catch (Exception e) { Debug.WriteLine(e); }
+
+        return RedirectToAction("AccountDetails");
     }
 
     [HttpPost]
-    [Route("/account")]
-    public IActionResult AddressInfo(SignInViewModel model) {
-        ViewData["Title"] = "Account details";
+    public async Task<IActionResult> AddressInfo(AccountDetails_AddressInfo_Model model) {
 
-        return View(model);
+        try {
+            if (ModelState.IsValid) {
+                AppUser? tUser = await _userManager.GetUserAsync(User);
+
+                await _addressService.CreateOrUpdateAsync(tUser!.Id, model.Address1, model.PostalCode, model.City, model.Address2!);
+            }
+
+        } catch (Exception e) { Debug.WriteLine(e); }
+
+        return RedirectToAction("AccountDetails");
     }
 
+    #region SignIn
 
     [HttpGet]
     [Route("/signin")]
@@ -71,6 +125,9 @@ public class AccountController(UserManager<AppUser> userManager, SignInManager<A
         return View(model);
     }
 
+    #endregion
+
+    #region SignUp
 
     [HttpGet]
     [Route("/signup")]
@@ -109,6 +166,8 @@ public class AccountController(UserManager<AppUser> userManager, SignInManager<A
 
         return View(model);
     }
+
+    #endregion
 
     public async Task<IActionResult> SignOut(SignUpViewModel model) {
         await _signInManager.SignOutAsync();

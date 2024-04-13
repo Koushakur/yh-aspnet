@@ -2,6 +2,13 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
+@{
+    AppUser? appUser = await UserManager.GetUserAsync(User);
+    var profileImgURL = "";
+    if (appUser != null) {
+        profileImgURL = appUser.ProfileImageURL;
+    }
+}
 
 <div class="container">
     <div class="logo-nav">
@@ -27,8 +34,13 @@
         @if (SignInManager.IsSignedIn(User)) {
             @* Signed in, show profile icon *@
             <div class="profileButton">
-                @if (false) { }
-                <img src="~/images/profile.png" alt="User's profile image">
+                @if (!string.IsNullOrWhiteSpace(profileImgURL)) {
+                    @* User has profile image *@
+                    <img src="profileImgURL" alt="User's profile image">
+                } else {
+                    @* Default profile image *@
+                    <img src="~/images/profile.png" alt="Default profile image">
+                }
                 <div class="profileMenu">
                     <a asp-action="AccountDetails" asp-controller="Account" class="button btn-dark btn-height-medium">Account Details</a>
                     <a asp-action="SignOut" asp-controller="Account" class="button btn-dark btn-height-medium">Sign Out</a>

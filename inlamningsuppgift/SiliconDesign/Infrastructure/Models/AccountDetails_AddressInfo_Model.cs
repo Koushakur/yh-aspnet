@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SiliconAppMVC.Models;
-public class AccountDetailsAddressInfoModel {
+namespace Infrastructure.Models;
+public class AccountDetails_AddressInfo_Model {
 
     [Display(Name = "Address line 1", Prompt = "Enter your address line")]
     [Required(ErrorMessage = "Required field")]
