@@ -1,0 +1,45 @@
+﻿@model NewsletterViewModel;
+
+<section id="newsletter">
+    <div class="container">
+        <h2>Don't Want to Miss Anything?</h2>
+        <img src="~/images/misc/LoopArrow.svg" alt="" />
+        <form method="post" asp-controller="home" asp-action="index" novalidate>
+            <div class="newsletters">
+                <h5>Sign up for<br>Newsletters</h5>
+                <div class="selection-grid">
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Daily" name="Daily" type="checkbox">
+                        <label asp-for="NewsletterModel.Daily"></label>
+                    </div>
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Advertising" name="Advertising" type="checkbox">
+                        <label asp-for="NewsletterModel.Advertising"></label>
+                    </div>
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Weekly" name="Weekly" type="checkbox">
+                        <label asp-for="NewsletterModel.Weekly"></label>
+                    </div>
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Event" name="Event" type="checkbox">
+                        <label asp-for="NewsletterModel.Event"></label>
+                    </div>
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Startup" name="Startup" type="checkbox">
+                        <label asp-for="NewsletterModel.Startup"></label>
+                    </div>
+                    <div class="grid-item">
+                        <input asp-for="NewsletterModel.Podcast" name="Podcast" type="checkbox">
+                        <label asp-for="NewsletterModel.Podcast"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="email-input">
+                <span class="fa-regular fa-envelope"></span>
+                <input asp-for="NewsletterModel.Email" name="Email" type="text">
+                <button class="btn-dark" type="submit">Subscribe *</button>
+            </div>
+        </form>
+        <label>* Yes, I agree to the <a href="">terms</a> and <a href="">privacy policy</a></label>
+    </div>
+</section>

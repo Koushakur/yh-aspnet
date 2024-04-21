@@ -1,0 +1,24 @@
+#courseAd {
+   margin-top: 9vh;
+   margin-bottom: 9vh;
+
+   .container {
+      display: flex;
+      background-color: $color-background-violet;
+      border-radius: 10px;
+      padding: 25px 100px;
+
+      align-items: center;
+      justify-content: space-between;
+
+      .textBox {
+         .title {
+            font-size: 24px;
+         }
+
+         .purple {
+            color: $color-accent;
+         }
+      }
+   }
+}

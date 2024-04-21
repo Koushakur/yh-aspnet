@@ -1,73 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 * {
-    font-family: manrope, sans-serif;
-    font-weight: bold;
+   font-family: manrope, sans-serif;
+   font-weight: bold;
 }
 
 p {
-    color: $color-gray-700;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 160%;
+   color: $color-gray-700;
+   font-weight: normal;
+   font-size: 18px;
+   line-height: 160%;
 }
 
 @mixin p-m {
-    font-size: 16px;
+   font-size: 16px;
 }
 
 h1 {
-    font-size: 56px;
-    font-weight: 900;
-    line-height: 130%;
+   font-size: 56px;
+   font-weight: 900;
+   line-height: 130%;
 }
 
 h2 {
-    font-size: 40px;
-    font-weight: 900;
-    line-height: 130%;
-    margin-bottom: 15px;
+   font-size: 40px;
+   font-weight: 900;
+   line-height: 130%;
+   margin-bottom: 15px;
 }
 
 h3 {
-    font-size: 32px;
-    font-weight: 900;
-    line-height: 130%;
+   font-size: 32px;
+   font-weight: 900;
+   line-height: 130%;
+}
+
+h4 {
+   font-size: 24px;
+   font-weight: 800;
+   line-height: 140%;
+
 }
 
 h5 {
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 140%;
+   font-size: 20px;
+   font-weight: 800;
+   line-height: 140%;
 }
 
 h6 {
-    font-size: 16px;
-    font-weight: 800;
+   font-size: 16px;
+   font-weight: 800;
 }
 
 a {
-    color: $color-accent;
-    text-decoration: none;
-    font-weight: normal;
+   color: $color-accent;
+   text-decoration: none;
+   font-weight: normal;
 
-    &.button {
-        display: flex;
-        align-items: center;
-    }
+   &.button {
+      display: flex;
+      align-items: center;
+   }
 
-    &:hover {
-        text-decoration: underline;
-    }
+   &:hover {
+      text-decoration: underline;
+   }
 }
 
 .add-optional-text:after {
-    content: " (optional)";
-    color: $color-gray-600;
-    font-weight: 600;
+   content: " (optional)";
+   color: $color-gray-600;
+   font-weight: 600;
 }
 
 .error-text {
-    color: $color-error;
-    font-size: 13px;
+   color: $color-error;
+   font-size: 13px;
+}
+
+.price-text {
+   color: $color-accent;
+   font-size: 18px;
+   font-weight: bold;
+
+   &.sale {
+      display: inline;
+      color: $color-error;
+   }
+
+   &.original {
+      display: inline;
+      font-size: 16px;
+      color: $color-gray-600;
+      text-decoration: line-through;
+      font-weight: normal;
+   }
+}
+
+
+ul {
+   padding-left: 0;
+
+   li {
+      color: $color-gray-700;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 240%;
+
+      list-style-type: none;
+
+      &::before {
+         content: "\2714";
+         display: inline-block;
+         margin-right: 12px;
+
+         color: $color-accent;
+         font-size: 12px;
+         line-height: 140%;
+
+         width: 18px;
+         height: 18px;
+
+         text-align: center;
+         border: 2px solid $color-accent;
+         border-radius: 50%;
+      }
+   }
 }

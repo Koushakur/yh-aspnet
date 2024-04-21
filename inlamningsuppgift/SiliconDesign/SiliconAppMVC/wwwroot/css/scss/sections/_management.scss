@@ -1,0 +1,28 @@
+#management {
+   padding-top: 9vh;
+   padding-bottom: 9vh;
+
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+
+      img {
+         position: relative;
+         left: -50px;
+      }
+
+      .info {
+         margin-left: 100px;
+
+         h3 {
+            margin-bottom: 25px;
+         }
+
+         a {
+            margin-top: 30px;
+            width: fit-content;
+         }
+      }
+   }
+}

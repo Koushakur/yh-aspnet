@@ -1,5 +1,18 @@
 ﻿@model HomeIndexViewModel;
 
+@{
+    if (ViewData["Message"] != null) {
+        <text>
+            <script>
+                alert('@ViewData["Message"]');
+            </script>
+        </text>
+    }
+}
+
 <partial name="~/views/shared/sections/_jumbotron.cshtml" />
 <partial name="~/views/shared/sections/_features.cshtml" model="@Model.FeaturesVM" />
+<partial name="~/views/shared/sections/_themeMode.cshtml" />
+<partial name="~/views/shared/sections/_management.cshtml" />
+<partial name="~/views/shared/sections/_newsletter.cshtml" model="@Model.NewsletterVM" />
 <partial name="~/views/shared/sections/_socials.cshtml" />

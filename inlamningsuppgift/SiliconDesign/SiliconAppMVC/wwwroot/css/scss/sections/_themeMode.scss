@@ -1,0 +1,37 @@
+#themeMode {
+   display: grid;
+   grid-template-columns: 1fr 0 0 1fr;
+
+   .middle {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      // text-align: center;
+
+      #sliderImage {
+         z-index: 1;
+      }
+
+      #mockup {
+         margin-top: 100px;
+      }
+   }
+
+   .darkSide {
+      // z-index: -2;
+
+      padding-top: 9vh;
+      padding-bottom: 9vh;
+
+      color: $color-white;
+      background-color: $color-black;
+      text-align: end;
+   }
+
+   .lightSide {
+      padding-top: 9vh;
+      padding-bottom: 9vh;
+
+   }
+
+}

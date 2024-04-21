@@ -1,0 +1,57 @@
+﻿@model CoursesViewModel
+@using API.Models
+
+<section id="courses">
+    <div class="container">
+
+        <div class="titleAndSearch">
+            <h2>Courses</h2>
+            <div>
+                <div class="dropDown"></div>
+                <div class="searchAndDropdown">
+                    <input type="search" placeholder="Search courses">
+                    <a href=""><span class="fa-regular fa-magnifying-glass"></span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gridBox">
+            @{
+                foreach (CourseModel c in Model.Courses) {
+                    <div class="content">
+                        @if (c.BestSeller == true) {
+                            <span class="bestseller">Best Seller</span>
+                        }
+                        <img src="~/@($"{@c.ImageURL}")" alt="">
+                        <span class="fa-regular fa-bookmark"></span>
+                        <div class="textBox">
+
+                            <h5>@c.Title</h5>
+                            <p class="author">By @c.Author</p>
+                            @if (@c.PriceDiscounted != null) {
+                                <!-- Discounted -->
+                                <p class="price-text sale">$@c.PriceDiscounted</p>
+                                <p class="price-text original">$@c.PriceOriginal</p>
+
+                            } else {
+                                <!-- Not discounted -->
+                                <p class="price-text">$@c.PriceOriginal</p>
+                            }
+                            <hr>
+                            <div class="stats">
+                                <p><span class="fa-regular fa-clock"></span> @c.Hours hours</p>
+                                <p><span class="fa-light fa-thumbs-up"></span> @($"{c.LikePercentage:0}%") @($"({c.Likes / 1000.0}K)")</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="pagination"></div>
+
+        <partial name="~/views/shared/sections/_courseAd.cshtml" />
+    </div>
+</section>
+
+<partial name="~/views/shared/sections/_socials.cshtml" />

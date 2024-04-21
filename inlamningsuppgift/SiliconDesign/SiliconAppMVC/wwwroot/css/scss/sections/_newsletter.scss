@@ -1,0 +1,73 @@
+#newsletter {
+    background-color: $color-background-violet;
+    padding-top: 9vh;
+    padding-bottom: 9vh;
+
+    .container {
+        width: 50%;
+
+        h2 {
+            display: inline-block;
+            margin-bottom: 50px;
+            margin-right: 25px;
+        }
+
+        label {
+            color: $color-gray-600;
+            font-weight: normal;
+        }
+
+        .newsletters {
+            display: flex;
+
+            label {
+                color: $color-black;
+            }
+
+            .selection-grid {
+                display: grid;
+                width: 100%;
+                padding-left: 75px;
+                grid-template-columns: repeat(3, 1fr);
+
+                .grid-item {
+                    text-align: justify;
+
+                    label {
+                        position: relative;
+                        bottom: 4px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        form {
+
+            .email-input {
+                margin-top: 50px;
+                margin-bottom: 10px;
+                position: relative;
+                display: flex;
+
+                .fa-envelope {
+                    position: absolute;
+                    color: $color-gray-500;
+                    top: 16px;
+                    left: 20px;
+                    font-size: 20px;
+                }
+
+                input[type=text] {
+                    padding-left: 55px;
+                }
+
+                button {
+                    margin-left: 16px;
+                    text-wrap: nowrap;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}

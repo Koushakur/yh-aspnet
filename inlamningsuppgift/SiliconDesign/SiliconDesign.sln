@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiliconAppMVC", "SiliconAppMVC\SiliconAppMVC.csproj", "{8BBECEB2-5EDE-4D36-83F7-736366B233BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{967168E4-D7DC-4489-B965-6B542AA95611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{967168E4-D7DC-4489-B965-6B542AA95611}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0C159DDB-A26E-41D2-8A9F-B3CC52AC60A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{967168E4-D7DC-4489-B965-6B542AA95611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{967168E4-D7DC-4489-B965-6B542AA95611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{967168E4-D7DC-4489-B965-6B542AA95611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C159DDB-A26E-41D2-8A9F-B3CC52AC60A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C159DDB-A26E-41D2-8A9F-B3CC52AC60A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C159DDB-A26E-41D2-8A9F-B3CC52AC60A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C159DDB-A26E-41D2-8A9F-B3CC52AC60A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

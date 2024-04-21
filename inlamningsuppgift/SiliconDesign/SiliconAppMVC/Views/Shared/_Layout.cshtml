@@ -1,6 +1,6 @@
 ﻿@{
     string pageTitle;
-    if (!string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()))
+    if (string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()))
         pageTitle = ViewData["Title"] + " | Silicon Design";
     else
         pageTitle = "Silicon Design";

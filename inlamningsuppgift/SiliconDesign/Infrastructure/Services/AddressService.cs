@@ -18,7 +18,7 @@ public class AddressService(AddressRepository addressRepository) {
                 UserId = userID,
             };
 
-            if (await _addressRepository.Exists(tAddress))
+            if (await _addressRepository.ExistsAsync(tAddress))
                 return null!;
 
             return await _addressRepository.Create(tAddress);
@@ -37,10 +37,10 @@ public class AddressService(AddressRepository addressRepository) {
                 UserId = userId,
             };
 
-            Expression<Func<AddressEntity, bool>> tExp = x => x.UserId == userId;
+            Expression<Func<AddressEntity, bool>> tExp = (x => x.UserId == userId);
 
-            if (await _addressRepository.Exists(tExp)) {
-                if (await _addressRepository.UpdateEntity(tExp, tAddress))
+            if (await _addressRepository.ExistsAsync(tExp)) {
+                if (await _addressRepository.UpdateEntityAsync(tExp, tAddress))
                     return tAddress;
                 else
                     return null!;
@@ -54,7 +54,7 @@ public class AddressService(AddressRepository addressRepository) {
     public async Task<AddressEntity> GetAddressAsync(string userId) {
 
         try {
-            return await _addressRepository.GetOne(x => x.UserId == userId);
+            return await _addressRepository.GetOneAsync(x => x.UserId == userId);
 
         } catch (Exception e) { Debug.WriteLine(e); }
         return null!;

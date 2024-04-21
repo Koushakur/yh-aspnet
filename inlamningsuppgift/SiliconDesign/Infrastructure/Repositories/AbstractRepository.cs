@@ -1,13 +1,12 @@
-﻿using Infrastructure.Contexts;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories;
 
-public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) where TEntity : class {
+public abstract class AbstractRepository<TEntity>(DbContext dbContext) where TEntity : class {
 
-    private readonly IdentityContext _dbContext = dbContext;
+    private readonly DbContext _dbContext = dbContext;
 
     public async virtual Task<TEntity> Create(TEntity entity) {
         try {
@@ -20,7 +19,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         return null!;
     }
 
-    public async virtual Task<TEntity> GetOne(Expression<Func<TEntity, bool>> exp) {
+    public async virtual Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> exp) {
         try {
             var tEntity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(exp)!;
 
@@ -29,7 +28,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         } catch (Exception e) { Debug.WriteLine(e); }
         return null!;
     }
-    public async virtual Task<ICollection<TEntity>> GetAll() {
+    public async virtual Task<ICollection<TEntity>> GetAllAsync() {
         try {
             var tEntities = await _dbContext.Set<TEntity>().ToListAsync();
 
@@ -39,7 +38,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         return null!;
     }
 
-    public async virtual Task<bool> UpdateEntity(Expression<Func<TEntity, bool>> exp, TEntity updatedEntity) {
+    public async virtual Task<bool> UpdateEntityAsync(Expression<Func<TEntity, bool>> exp, TEntity updatedEntity) {
         try {
             var tEntity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(exp)!;
             if (tEntity != null) {
@@ -53,7 +52,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         return false;
     }
 
-    public async virtual Task<bool> RemoveEntity(Expression<Func<TEntity, bool>> exp) {
+    public async virtual Task<bool> RemoveEntityAsync(Expression<Func<TEntity, bool>> exp) {
         try {
             var tEntity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(exp!);
             if (tEntity != null) {
@@ -67,7 +66,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         return false;
     }
 
-    public virtual async Task<bool> Exists(Expression<Func<TEntity, bool>> exp) {
+    public virtual async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> exp) {
         try {
             return await _dbContext.Set<TEntity>().AnyAsync(exp);
 
@@ -75,7 +74,7 @@ public abstract class AbstractRepository<TEntity>(IdentityContext dbContext) whe
         return false;
     }
 
-    public virtual async Task<bool> Exists(TEntity entity) {
+    public virtual async Task<bool> ExistsAsync(TEntity entity) {
         try {
             foreach (TEntity tEntity in await _dbContext.Set<TEntity>().ToListAsync()) {
                 if (entity.Equals(tEntity)) return true;

@@ -1,0 +1,101 @@
+#courses {
+    margin-top: 11vh;
+
+    .container {
+
+        .titleAndSearch {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            .searchAndDropdown {
+                position: relative;
+
+                input {
+                    padding-right: 35px;
+                }
+
+                span {
+                    position: absolute;
+                    right: 16px;
+                    top: 16px;
+                }
+            }
+        }
+
+        .gridBox {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+
+            .content {
+                position: relative;
+                border-radius: 10px;
+                box-shadow: 0 5px 10px $color-gray-500;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    height: 240px;
+                    width: 100%;
+                }
+
+                .bestseller {
+                    position: absolute;
+                    top: 16px;
+                    left: 16px;
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: $color-white;
+                    background-color: $color-success;
+                    padding: 0 8px;
+                    border-radius: 5px;
+                }
+
+                .fa-bookmark {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    border-radius: 50%;
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $color-white;
+
+                    @include transition((color, background-color));
+
+                    &:hover {
+                        color: $color-white;
+                        background-color: $color-accent;
+                    }
+                }
+
+                .textBox {
+                    padding: 25px 25px 10px;
+
+
+                    .author {
+                        font-size: 14px;
+                    }
+
+                    .stats {
+                        p {
+                            color: $color-gray-600;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .stats {
+                    display: flex;
+                    gap: 15px;
+                }
+            }
+        }
+        // .pagination {
+        //    //
+        // }
+    }
+}

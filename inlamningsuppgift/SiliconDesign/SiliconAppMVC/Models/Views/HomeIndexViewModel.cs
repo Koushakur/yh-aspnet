@@ -4,7 +4,7 @@ using SiliconAppMVC.Models.Sections;
 namespace SiliconAppMVC.Models.Views;
 public class HomeIndexViewModel {
     public FeaturesViewModel FeaturesVM { get; set; } = null!;
-
+    public NewsletterViewModel NewsletterVM { get; set; } = null!;
     public HomeIndexViewModel() {
         FeaturesVM = new FeaturesViewModel {
             GridContent = [
@@ -40,5 +40,7 @@ public class HomeIndexViewModel {
                 },
             ]
         };
+
+        NewsletterVM = new NewsletterViewModel();
     }
 }

@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# temp folder for making the html/css in vsc before copying into the app structure
+/build-a-website
+
 # User-specific files
 *.rsuser
 *.suo
@@ -262,9 +265,9 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-*.mdf
-*.ldf
-*.ndf
+# *.mdf
+# *.ldf
+# *.ndf
 
 # Business Intelligence projects
 *.rdl.data
